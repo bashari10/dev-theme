@@ -188,7 +188,7 @@ class Dev_Theme {
 
     public function devtheme_edit_user_profile_update( $user_id ) {
         if ( current_user_can( 'edit_theme_options' ) && isset( $_POST[ "devtheme-user-profile-nonce" ] ) && wp_verify_nonce( $_POST[ "devtheme-user-profile-nonce" ], 'devtheme-user-profile' ) ) {
-            update_user_meta( $user_id, 'devtheme_activate', $_POST['devtheme_activate'] );
+            update_user_meta( $user_id, 'devtheme_activate', sanitize_text_field($_POST['devtheme_activate']) );
         }
     }
 
