@@ -16,6 +16,9 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Develop your website on live server without crashing your site, then deploy all changes in 1 click.
 
 
+
+
+
 == Installation ==
 1. Install Plugin
 2. Go to admin dashbord -> DEV Theme -> click "Copy from main theme to dev theme" to create your first DEV Theme
