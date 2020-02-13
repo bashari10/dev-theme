@@ -18,7 +18,6 @@ Develop your website on live server without crashing your site, then deploy all 
 
 
 
-
 == Installation ==
 1. Install Plugin
 2. Go to admin dashbord -> DEV Theme -> click "Copy from main theme to dev theme" to create your first DEV Theme
