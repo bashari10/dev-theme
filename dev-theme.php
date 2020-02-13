@@ -8,7 +8,13 @@
 ! defined( 'ABSPATH' ) and exit;
 
 class Dev_Theme {
+    protected $real_template_path;
+    protected $real_stylesheet_path;
+
     public function __construct() {
+        $this->real_template_path = get_template_directory();
+        $this->real_stylesheet_path = get_stylesheet_directory();
+
         add_filter( 'template', [$this, 'devtheme_user_template'] );
         add_filter( 'stylesheet', [$this, 'devtheme_user_stylesheet'] ); // only WP smaller 3*
         add_filter( 'option_template', [$this, 'devtheme_user_template'] );
@@ -39,7 +45,7 @@ class Dev_Theme {
     protected function getRealThemeDirName() {
         global $wpdb;
 
-        if(is_child_theme() === true) {
+        if($this->is_child_theme() === true) {
             $real_theme_option = 'stylesheet';
         } else {
             $real_theme_option = 'template';
@@ -136,13 +142,20 @@ class Dev_Theme {
         return (current_user_can('administrator') || current_user_can('super_admin')) && current_user_can( 'manage_options' ) && $extra_conditions;
     }
 
+    /*
+     * wp original is_child_theme will not work for us
+     */
+    protected function is_child_theme() {
+        return ($this->real_template_path !== $this->real_stylesheet_path);
+    }
+
     public function devtheme_titles( $title ) {
         return "** DEV ** $title";
     }
 
     public function devtheme_user_template( $template = '' ) {
         if ( get_user_meta( get_current_user_id(), 'devtheme_activate', true ) == 'checked' ) {
-            if(is_child_theme() !== true) {
+            if($this->is_child_theme() !== true) {//if is not child theme
                 $template = 'dev-theme';
             }
 
