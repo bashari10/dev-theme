@@ -16,7 +16,7 @@ class Dev_Theme {
         $this->real_stylesheet_path = get_stylesheet_directory();
 
         add_filter( 'template', [$this, 'devtheme_user_template'] );
-        add_filter( 'stylesheet', [$this, 'devtheme_user_stylesheet'] ); //only WP smaller 3*
+        add_filter( 'stylesheet', [$this, 'devtheme_user_stylesheet'] ); // only WP smaller 3*
         add_filter( 'option_template', [$this, 'devtheme_user_template'] );
         add_filter( 'option_stylesheet', [$this, 'devtheme_user_stylesheet'] );
 
