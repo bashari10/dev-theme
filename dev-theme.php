@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Dev Theme
  * Description: This plugin can duplicate your theme to a special development theme that you can edit and use, while real users using your current theme
- * Version: 1.0.2
+ * Version: 1.0.3
  */
 
 ! defined( 'ABSPATH' ) and exit;
