@@ -1,5 +1,5 @@
 === Dev Theme ===
-Contributors: bashari
+Contributors: galpeaceman, bashari
 Tags: development, dev, stage, staging, theme
 Requires at least: 4.6
 Tested up to: 5.3
